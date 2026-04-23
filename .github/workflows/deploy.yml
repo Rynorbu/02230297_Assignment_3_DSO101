@@ -56,7 +56,7 @@ jobs:
             --url ${{ secrets.RENDER_BACKEND_WEBHOOK_URL }} \
             --header 'Content-Type: application/json' \
             --data '{"clearCache": true}'
-        if: secrets.RENDER_BACKEND_WEBHOOK_URL != ''
+        if: ${{ secrets.RENDER_BACKEND_WEBHOOK_URL }}  
 
       # Step 7: Trigger Frontend Deployment on Render
       - name: Trigger Frontend Deployment on Render
@@ -64,7 +64,7 @@ jobs:
           curl --request POST \
             --url ${{ secrets.RENDER_FRONTEND_WEBHOOK_URL }} \
             --header 'Content-Type: application/json'
-        if: secrets.RENDER_FRONTEND_WEBHOOK_URL != ''
+        if: ${{ secrets.RENDER_FRONTEND_WEBHOOK_URL }}  
 
       # Step 8: Deployment Success Notification
       - name: Deployment Success
