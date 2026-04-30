@@ -40,6 +40,8 @@ jobs:
         with:
           context: ./frontend
           push: true
+          build-args: |
+            REACT_APP_API_URL=https://taskflow-backend.onrender.com
           tags: |
             ${{ env.DOCKER_USERNAME }}/${{ env.FRONTEND_IMAGE_NAME }}:latest
             ${{ env.DOCKER_USERNAME }}/${{ env.FRONTEND_IMAGE_NAME }}:${{ github.sha }}
